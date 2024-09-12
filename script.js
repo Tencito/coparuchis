@@ -1,4 +1,4 @@
-let losers = []; // Store losing teams
+let losers = []; // guarda teams loser
 
 function selectWinner(selectedTeam, nextMatchId) {
     const match = selectedTeam.parentElement;
