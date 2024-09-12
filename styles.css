@@ -71,7 +71,7 @@ body {
 .bracket-title {
     width: 100%;
     text-align: center;
-    margin: 20px 0; /* Ajusta el margen superior para bajar el título */
+    margin: 30px 0;
     font-size: 24px;
     color: white;
 }
