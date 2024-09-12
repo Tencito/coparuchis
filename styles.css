@@ -67,3 +67,11 @@ body {
     margin-bottom: 10px;
     font-size: 16px;
 }
+
+.bracket-title {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0; /* Ajusta el margen superior para bajar el título */
+    font-size: 24px;
+    color: white;
+}
