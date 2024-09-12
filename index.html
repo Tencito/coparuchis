@@ -5,66 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coparuchis Pick'em</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .main-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-container {
+            width: 250px;
+            background-color: #0f1b2b;
+            padding: 20px;
+            border: 1px solid #0f3460;
+            border-radius: 5px;
+            color: #fff;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        .team-info {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #00a8cc;
+            padding-bottom: 10px;
+        }
+
+        .team-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .bracket-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -50px; 
+        }
+
+        .bracket-title {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <div class="bracket-container">
-        <h1 style="text-align: center;">Coparuchis Pick'em</h1>
-        <div class="bracket">
-            <!-- Cuartos de Final -->
-            <div class="round">
-                <div class="phase-title">Cuartos de Final</div>
-                <div class="match" data-next="semi-1" data-phase="1">
-                    <div class="team" onclick="selectWinner(this, 'semi-1')">Team 1 &#x2B50;</div>
-                    <div class="team" onclick="selectWinner(this, 'semi-1')">Team 2 &#x2764;&#xFE0F</div>
-                </div>
-                <div class="match" data-next="semi-1" data-phase="1">
-                    <div class="team" onclick="selectWinner(this, 'semi-1')">Team 3 &#x1F525;</div>
-                    <div class="team" onclick="selectWinner(this, 'semi-1')">Team 4 &#x26A1;</div>
-                </div>
-                <div class="match" data-next="semi-2" data-phase="1">
-                    <div class="team" onclick="selectWinner(this, 'semi-2')">Team 5 &#x1F987;</div>
-                    <div class="team" onclick="selectWinner(this, 'semi-2')">Team 6 &#x1F383;</div>
-                </div>
-                <div class="match" id="losers">
-                    <!-- Lucky Loser seleccion dinamica -->
-                </div>
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+        <!-- Contenedor de la información de los equipos -->
+        <div class="info-container">
+            <div class="team-info">
+                <div class="team-title">Team 1 &#x2B50;</div>
+                <p>RK - SraBombas</p>
+                <p>MECA - Shionn</p>
+                <p>GX - KooN</p>
+                <p>WRL - Ceresita</p>
+                <p>AB - Pichi</p>
+            </div>
+            <div class="team-info">
+                <div class="team-title">Team 2 &#x2764;&#xFE0F;</div>
+                <p>RNG - Snoopy</p>
+                <p>GX - Ultimaz</p>
+                <p>MECA - Starbuck</p>
+                <p>WRL - tonoto</p>
+                <p>WRL - Mahne</p>
+            </div>
+            <div class="team-info">
+                <div class="team-title">Team 3 &#x1F525;</div>
+                <p>GX - EvenStar</p>
+                <p>WRL - NitaLove</p>
+                <p>GX - Damphir</p>
+                <p>RNG - Cotte</p>
+                <p>MECA - DareRagnarok</p>
+            </div>
+            <div class="team-info">
+                <div class="team-title">Team 4 &#x26A1;</div>
+                <p>RK - Mankitoito</p>
+                <p>WRL - Poxo</p>
+                <p>RNG - FinalBossPlus</p>
+                <p>AB - OtaPriest</p>
+                <p>CHAMP - Peluuka</p>
+            </div>
+            <div class="team-info">
+                <div class="team-title">Team 5 &#x1F987;</div>
+                <p>RNG - Tencito</p>
+                <p>WRL - Arunath</p>
+                <p>AB - HecateLunatica</p>
+                <p>RK - Azumi</p>
+                <p>RK - Astil</p>
+            </div>
+            <div class="team-info">
+                <div class="team-title">Team 6 &#x1F383;</div>
+                <p>RNG - TSuper</p>
+                <p>RK - XxK2xX</p>
+                <p>GX - Erutella</p>
+                <p>AB - Ilmater</p>
+                <p>WRL - Hakuryuu</p>
+            </div>
+        </div>
+        
+        <!-- Contenedor del Bracket -->
+        <div class="bracket-container">
+            <!-- Titulo -->
+            <div class="bracket-title">
+                Coparuchis Pick'em
             </div>
 
-            <!-- Lucky Loser Bracket -->
-            <div class="round" id="lucky-bracket">
-                <div class="phase-title">Lucky Bracket</div>
-                <div class="match" id="lucky">
-                    <!-- Lucky Loser selection -->
+            <div class="bracket">
+                <div class="round">
+                    <div class="phase-title">Cuartos de Final</div>
+                    <div class="match" data-next="semi-1" data-phase="1">
+                        <div class="team" onclick="selectWinner(this, 'semi-1')">Team 1 &#x2B50;</div>
+                        <div class="team" onclick="selectWinner(this, 'semi-1')">Team 2 &#x2764;&#xFE0F;</div>
+                    </div>
+                    <div class="match" data-next="semi-1" data-phase="1">
+                        <div class="team" onclick="selectWinner(this, 'semi-1')">Team 3 &#x1F525;</div>
+                        <div class="team" onclick="selectWinner(this, 'semi-1')">Team 4 &#x26A1;</div>
+                    </div>
+                    <div class="match" data-next="semi-2" data-phase="1">
+                        <div class="team" onclick="selectWinner(this, 'semi-2')">Team 5 &#x1F987;</div>
+                        <div class="team" onclick="selectWinner(this, 'semi-2')">Team 6 &#x1F383;</div>
+                    </div>
+                    <div class="match" id="losers">
+                        <!-- Lucky Loser seleccion dinamica -->
+                    </div>
                 </div>
-            </div>
 
-            <!-- Semifinal -->
-            <div class="round" id="semi-finals">
-                <div class="phase-title">Semifinal</div>
-                <div class="match" id="semi-1" data-next="final">
-                    <div class="team" onclick="selectWinner(this, 'final')">?</div>
-                    <div class="team" onclick="selectWinner(this, 'final')">?</div>
+                <!-- Lucky Loser Bracket -->
+                <div class="round" id="lucky-bracket">
+                    <div class="phase-title">Lucky Bracket</div>
+                    <div class="match" id="lucky">
+                        <!-- Lucky Loser seleccion -->
+                    </div>
                 </div>
-                <div class="match" id="semi-2" data-next="final">
-                    <div class="team" onclick="selectWinner(this, 'final')">?</div>
-                    <div class="team" onclick="selectWinner(this, 'final')">?</div>
-                </div>
-            </div>
 
-            <!-- Final -->
-            <div class="round" id="finals">
-                <div class="phase-title">Final</div>
-                <div class="match" id="final" data-next="winner">
-                    <div class="team" onclick="selectWinner(this, 'winner')">?</div>
-                    <div class="team" onclick="selectWinner(this, 'winner')">?</div>
+                <!-- Semifinal -->
+                <div class="round" id="semi-finals">
+                    <div class="phase-title">Semifinal</div>
+                    <div class="match" id="semi-1" data-next="final">
+                        <div class="team" onclick="selectWinner(this, 'final')">?</div>
+                        <div class="team" onclick="selectWinner(this, 'final')">?</div>
+                    </div>
+                    <div class="match" id="semi-2" data-next="final">
+                        <div class="team" onclick="selectWinner(this, 'final')">?</div>
+                        <div class="team" onclick="selectWinner(this, 'final')">?</div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Winner -->
-            <div class="round" id="winner">
-                <div class="phase-title">Ganador</div>
-                <div class="match">
-                    <div class="team">?</div>
+                <!-- Final -->
+                <div class="round" id="finals">
+                    <div class="phase-title">Final</div>
+                    <div class="match" id="final" data-next="winner">
+                        <div class="team" onclick="selectWinner(this, 'winner')">?</div>
+                        <div class="team" onclick="selectWinner(this, 'winner')">?</div>
+                    </div>
+                </div>
+
+                <!-- Winner -->
+                <div class="round" id="winner">
+                    <div class="phase-title">Ganador</div>
+                    <div class="match">
+                        <div class="team">?</div>
+                    </div>
                 </div>
             </div>
         </div>
