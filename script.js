@@ -1,4 +1,4 @@
-let losers = []; // guarda teams loser
+let losers = []; // guarda teams losers
 
 function selectWinner(selectedTeam, nextMatchId) {
     const match = selectedTeam.parentElement;
@@ -41,7 +41,7 @@ function advanceTeam(selectedTeam, nextMatchId) {
 function updateLosers(teams, selectedTeam) {
     teams.forEach(team => {
         if (!team.classList.contains('selected') && !losers.includes(team.textContent)) {
-            losers.push(team.textContent); // Add losing team
+            losers.push(team.textContent); // agrega team loser
         }
     });
     losers = losers.filter(loser => loser !== selectedTeam.textContent); // Remueve winner de losers
@@ -49,13 +49,13 @@ function updateLosers(teams, selectedTeam) {
 
 function updateLoserMatch() {
     const loserMatch = document.getElementById('lucky');
-    loserMatch.innerHTML = ''; // Clear current loser match display
+    loserMatch.innerHTML = ''; // limpia
 
     losers.forEach(loser => {
         const teamDiv = document.createElement('div');
         teamDiv.classList.add('team');
         teamDiv.textContent = loser;
-        teamDiv.onclick = () => selectWinner(teamDiv, 'semi-2'); // Advance selected loser to semi-finals
+        teamDiv.onclick = () => selectWinner(teamDiv, 'semi-2'); // avanza seleccion
         loserMatch.appendChild(teamDiv);
     });
 }
