@@ -44,7 +44,7 @@ function updateLosers(teams, selectedTeam) {
             losers.push(team.textContent); // Add losing team
         }
     });
-    losers = losers.filter(loser => loser !== selectedTeam.textContent); // Remove winner from losers
+    losers = losers.filter(loser => loser !== selectedTeam.textContent); // Remueve winner de losers
 }
 
 function updateLoserMatch() {
